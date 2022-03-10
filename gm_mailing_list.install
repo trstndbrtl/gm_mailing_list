@@ -1,0 +1,118 @@
+<?php
+
+/**
+ * @file
+ * Install and update functions for the gm_mailing_list module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function gm_mailing_list_schema() {
+  
+  $schema['users_mailing_list'] = [
+    'description' => 'List of user for mailing list.',
+    'fields' => [
+      'id' => [
+        'description' => 'The subscriber ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid_logged' => [
+        'description' => 'The User ID if logged',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => NULL,
+      ],
+      'status' => [
+        'description' => 'Statue of the subscription.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => 1,
+      ],
+      'email' => [
+        'description' => 'The mail of the subscriber.',
+        'type' => 'varchar_ascii',
+        'length' => 128,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'name' => [
+        'description' => 'The name of the subscriber.',
+        'type' => 'varchar_ascii',
+        'length' => 60,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'forname' => [
+        'description' => 'The forname of the subscriber.',
+        'type' => 'varchar_ascii',
+        'length' => 60,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'code_postal' => [
+        'description' => 'The code postal of the subscriber',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => NULL,
+      ],
+      'type' => [
+        'description' => 'The type of the mailing list.',
+        'type' => 'varchar_ascii',
+        'length' => 128,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'prefix' => [
+        'description' => 'The prefix of the phone.',
+        'type' => 'varchar_ascii',
+        'length' => 10,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'phone' => [
+        'description' => 'The phone of the subscriber.',
+        'type' => 'varchar_ascii',
+        'length' => 30,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'country' => [
+        'description' => 'The country of the subscriber.',
+        'type' => 'varchar_ascii',
+        'length' => 10,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'timestamp' => [
+        'description' => 'The date of the relationship response.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'email' => ['email'],
+      'code_postal' => ['code_postal'],
+      'uid_logged' => ['uid_logged'],
+      'type' => ['type'],
+      'name' => ['name'],
+      'country' => ['country'],
+    ],
+    'foreign keys' => [
+      'relationships_user' => [
+        'table' => 'users',
+        'columns' => ['uid_logged' => 'uid'],
+      ],
+    ],
+  ];
+
+  return $schema;
+}

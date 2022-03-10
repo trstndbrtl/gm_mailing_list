@@ -1,0 +1,15 @@
+{% if bk_bg %}
+<div class="gm-newsletter-form-wrapper gm-{{bk_text_color}} gm-padding-{{bk_padding}}" style="background-color:{{bk_bg_color}};background-image:url({{bk_bg}});">
+{% else %}
+<div class="gm-newsletter-form-wrapper gm-{{bk_text_color}} gm-padding-{{bk_padding}}" style="background-color:{{bk_bg_color}};">
+{% endif %}
+    {% if bk_baseline %}
+        <h3 class="gm-newsletter-baseline clearfix">{{bk_baseline}}</h3>
+    {% endif %}
+    <div class="gm-newsletter-form clearfix">
+        {{ drupal_form('Drupal\\gm_mailing_list\\Form\\MailingListForm') }}
+    </div>
+    {% if bk_accept_text %}
+        <div class="gm-newsletter-accept clearfix">{{bk_accept_text|raw}}</div>
+    {% endif %}
+</div>

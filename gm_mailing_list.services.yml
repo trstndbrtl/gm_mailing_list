@@ -1,0 +1,6 @@
+services:
+  gm_mailing_list.builder.data:
+    class: Drupal\gm_mailing_list\MailingListStorageInterface
+    arguments: ['@database', '@state', '@request_stack']
+    tags:
+      - { name: backend_overridable }

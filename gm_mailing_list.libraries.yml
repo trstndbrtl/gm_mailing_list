@@ -1,0 +1,12 @@
+gm-design-section:
+  js:
+    js/gm-mailing-list.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce
+    - core/drupalSettings
+  css:
+    theme:
+      css/gm-mailing-list.css: {}

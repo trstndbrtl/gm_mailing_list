@@ -1,0 +1,5 @@
+name: 'GM Mailing List'
+type: module
+description: 'A module to store mail for mailing list.'
+core_version_requirement: ^8.9.1 || ^9
+package: 'GM'

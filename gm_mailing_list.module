@@ -1,0 +1,18 @@
+<?php
+
+function gm_mailing_list_theme($existing, $type, $theme, $path) {
+  $theme = [];
+  $theme['newsletter_form'] = [
+    'template' => 'gm-newsletter-form',
+    'variables' => [
+      'bk_bg' => NULL,
+      'bk_bg_color' => NULL,
+      'bk_text_color' => NULL,
+      'bk_bg_overlay' => NULL,
+      'bk_padding' => NULL,
+      'bk_baseline' => NULL,
+      'bk_accept_text' => NULL
+    ],
+  ];
+  return $theme;
+}

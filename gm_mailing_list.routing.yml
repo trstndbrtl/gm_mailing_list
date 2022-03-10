@@ -1,0 +1,14 @@
+gm_mailing_list.exports.articles:
+  path: '/exports/articles'
+  defaults:
+    _controller: '\Drupal\gm_mailing_list\Controller\BuildCsvController::build'
+  requirements:
+    _permission: 'administer users'
+
+gm_mailing_list.find_code_postal:
+  path: '/autocomplete/code-postal'
+  defaults:
+    _controller: '\Drupal\gm_mailing_list\Controller\BuildCsvController::findCodePostal'
+    _format: json
+  requirements:
+    _permission: 'access content'
